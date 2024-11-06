@@ -1,0 +1,72 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@600&family=Roboto:wght@400&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="{% static 'css/personal_cabinet.css' %}">
+    <title>Личный кабинет</title>
+</head>
+<body>
+
+
+    <div id="mySidepanel" class="sidepanel">
+        <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+        <a href="{% url 'personal_cabinet' %}">Личный кабинет</a>
+        <a href="#">Расписания</a>
+    </div>
+
+
+    <button class="openbtn" onclick="openNav()">+</button>
+
+
+    <div class="cabinet-header">
+        <img src="{% static './img/person.png' %}" alt="Аватар студента" class="avatar">
+        <h1>Личный кабинет студента</h1>
+    </div>
+
+    {% if user.is_authenticated %}
+        <div class="profile-info">
+            <div class="profile-field">
+                <label>ФИО:</label>
+                <span>{{ student.first_name }} {{ student.last_name }}</span>
+            </div>
+            {% if student %}
+                <div class="profile-field">
+                    <label>Факультет:</label>
+                    <span>{{ student.current_faculty }}</span>
+                </div>
+                <div class="profile-field">
+                    <label>Образовательная программа:</label>
+                    <span>{{ student.speciality }}</span>
+                </div>
+                <div class="profile-field">
+                    <label>Курс:</label>
+                    <span>{{ student.status }}</span>
+                </div>
+            {% else %}
+                <p>Студент не найден.</p>
+            {% endif %}
+            <div class="profile-field">
+                <label>Электронная почта:</label>
+                <span>{{ user.email }}</span>
+            </div>
+        </div>
+    {% else %}
+        <p>Пожалуйста, войдите в систему, чтобы увидеть ваш профиль.</p>
+    {% endif %}
+
+
+    <script>
+        function openNav() {
+            document.getElementById("mySidepanel").style.width = "250px";
+        }
+
+        function closeNav() {
+            document.getElementById("mySidepanel").style.width = "0";
+        }
+    </script>
+
+</body>
+</html>

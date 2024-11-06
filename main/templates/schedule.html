@@ -1,0 +1,24 @@
+<!-- templates/schedule.html -->
+<h1>Schedule for "{{ speciality }}"</h1>
+<table>
+    <thead>
+        <tr>
+            <th>Day</th>
+            <th>Time</th>
+            <th>Subject</th>
+            <th>Teacher</th>
+            <th>Room</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for entry in schedule %}
+            <tr>
+                <td>{{ entry.Day }}</td>
+                <td>{{ entry.Time }}</td>
+                <td>{{ entry.Subject }}</td>
+                <td>{{ entry.Teacher }}</td>
+                <td>{{ entry.Room }}</td>
+            </tr>
+        {% endfor %}
+    </tbody>
+</table>

@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <style>
+        @font-face {
+            font-family: 'DejaVu Sans';
+            src: url('static/fonts/DejaVuSans.ttf') format('truetype');
+            font-weight: normal;
+            font-style: normal;
+        }
+
+        /* Применение шрифта ко всему документу */
+        body {
+            font-family: 'DejaVu Sans', Arial, sans-serif;
+            font-size: 12pt;
+        }
+        .header {
+            text-align: left;
+            margin-bottom: 20px;
+        }
+        .content {
+            text-align: right;
+            margin: 40px;
+        }
+        .title {
+            text-align: left;
+            font-weight: bold;
+            font-size: 20pt;
+            margin-top: 20px;
+        }
+        .date {
+            text-align: right;
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+
+<div class="header">
+    Регистрационный номер: {{ application.id }}<br>
+    {{ application.created_at|date:"d-m-Y H:i" }}
+</div>
+
+<div class="content">
+    <p>{{ application.responsible }}</p>
+    <p>УО «Алматы Менеджмент Университет»</p>
+    <p>{{ application.executor }}</p>
+
+    <p>от студента (ки) {{ application.student.speciality.name }} {{ application.student.course }} курса</p>
+    <p>ОП «{{ application.student.speciality }}»</p>
+    <p>язык обучения: {{ application.student.language }}</p>
+    <p>форма обучения: {{ application.student.status }} ({{ application.student.education_type }})</p>
+    <p>{{ application.student.last_name }} {{ application.student.first_name }} {{ application.student.middle_name }}</p>
+    <p>Конт. телефон: {{ application.student.phone }}</p>
+
+    <p class="title" style="text-align: center; margin-top: 30px;"><strong>Заявление</strong></p>
+
+    <p style="text-align: left; margin-top: 20px;">{{ application.description }}</p>
+
+    <div class="date">{{ application.created_at|date:"d-m-Y" }} г.</div>
+</div>
+
+</body>
+</html>

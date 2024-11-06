@@ -1,0 +1,11 @@
+<!-- templates/select_speciality.html -->
+<form method="post">
+    {% csrf_token %}
+    <label for="speciality">Select your speciality:</label>
+    <select name="speciality" id="speciality">
+        {% for speciality in specialities %}
+            <option value="{{ speciality.name }}">{{ speciality.name }}</option>
+        {% endfor %}
+    </select>
+    <button type="submit">View Schedule</button>
+</form>

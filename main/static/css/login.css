@@ -1,0 +1,45 @@
+body {
+    background-image: url("../img/bckgnd.jpg");
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    height: 100vh;
+    margin: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+} 
+
+form {
+    padding: 40px;
+    border-radius: 8px;
+    background-color: rgb(253, 254, 255);
+    width: 250px;
+}
+input[type="email"],
+input[type="password"] {
+    width: 100%; 
+    padding: 10px; 
+    margin-bottom: 15px; 
+    border: 1px solid #ccc; 
+    border-radius: 4px; 
+    box-sizing: border-box; 
+}
+p{
+    font-family: Montserrat;
+    font-size: 20px;
+    color: #888181;
+    font-weight: 500;
+}
+
+button{
+    width: 100%; 
+    padding: 10px; 
+    border: 1px solid #ccc; 
+    border-radius: 4px; 
+    background-color: rgb(241, 76, 76);
+    font-family: Montserrat;
+    color: white;
+    
+}

@@ -1,0 +1,25 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static 'css/login.css' %}">
+    <title>Registration</title>
+</head>
+<body>
+    <form method="POST">
+        {% csrf_token %}
+        <p>Войти в личный кабинет</p>
+        <div>
+            <label for="{{ form.email.id_for_label }}">Электронная почта</label>
+            {{ form.email }}
+        </div>
+        <div>
+            <label for="{{ form.password.id_for_label }}">Пароль</label>
+            {{ form.password }}
+        </div>
+        <button type="submit">Войти</button>
+    </form>
+</body>
+</html>
